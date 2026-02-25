@@ -1,0 +1,4 @@
+PyQt5>=5.15.0
+selenium>=4.8.0
+webdriver-manager>=4.0.0
+
