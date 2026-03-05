@@ -328,7 +328,7 @@ class BotWorker(QThread):
         self.log_signal.emit("✅ Identity Verified")
         
         
-        driver.get("https://www.facebook.com/")
+        driver.get("https://www.facebook.com/?filter=all&sk=h_chr")
         time.sleep(6)
 
         start_time = time.time()
