@@ -267,8 +267,7 @@ def print_result(action, name, status):
 # ===================== LIKE =====================
 def like_all_visible(driver):
     buttons = driver.find_elements(
-        By.XPATH,
-        "//div[@role='button'][.//span[text()='Suka'] or .//span[text()='Like']]"
+        By.XPATH, "//div[@role='button' and (@aria-label='Suka' or @aria-label='Like')]"
     )
 
     for btn in buttons:
@@ -277,7 +276,7 @@ def like_all_visible(driver):
 
         try:
             aria = (btn.get_attribute("aria-label") or "").lower()
-            if "hapus suka" in aria or "remove like" in aria:
+            if "hapus suka" in aria or "remove like" in aria or "unlike" in aria:
                 continue
 
             if safe_click(driver, btn):
@@ -328,7 +327,7 @@ class BotWorker(QThread):
         self.log_signal.emit("✅ Identity Verified")
         
         
-        driver.get("https://www.facebook.com/?filter=all&sk=h_chr")
+        driver.get("https://web.facebook.com/?filter=all&sk=h_chr")
         time.sleep(6)
 
         start_time = time.time()
