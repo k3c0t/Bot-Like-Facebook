@@ -267,7 +267,7 @@ def print_result(action, name, status):
 # ===================== LIKE =====================
 def like_all_visible(driver):
     buttons = driver.find_elements(
-        By.XPATH, "//div[@role='button' and (@aria-label='Suka' or @aria-label='Like')]"
+        By.XPATH, "//div[@role='button' and (contains(@aria-label, 'Suka') or contains(@aria-label, 'Like'))]"
     )
 
     for btn in buttons:
